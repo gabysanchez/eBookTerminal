@@ -31,7 +31,12 @@ public class Library {
                 System.out.println("I Dont Have This Book :" + title);
             }
 
+
         }
+    }
+
+    public List<Book> getBooks() {
+        return books;
     }
 }
 
