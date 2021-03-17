@@ -25,6 +25,11 @@ public abstract class Menu{
 
     public void draw() {}
     public void condition(String comand) {}
+    public void limpiar(){
+        for (int i = 0; i < 30; i++) {
+            System.out.println("");
+        }
+    }
     public void generate() {}
 
 

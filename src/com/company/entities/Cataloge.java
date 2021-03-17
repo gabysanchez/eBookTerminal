@@ -3,18 +3,18 @@ package com.company.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Library {
+public class Cataloge {
 
-    private static Library bibliteca;
+    private static Cataloge bibliteca;
     private List<Book> books;
 
-    private Library(){
+    private Cataloge(){
         this.books = new ArrayList<>();
     }
 
-    public static Library getInstance() {
+    public static Cataloge getInstance() {
         if(bibliteca == null){
-            bibliteca = new Library();
+            bibliteca = new Cataloge();
         }
         return bibliteca;
     }

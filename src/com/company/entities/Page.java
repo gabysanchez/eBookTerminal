@@ -1,13 +1,15 @@
 package com.company.entities;
 
-public class Page {
-    private String text;
+import java.util.List;
 
-    public Page(String text) {
+public class Page {
+    private String[] text;
+
+    public Page(String[] text) {
         this.text = text;
     }
 
-    public String getText() {
+    public String[] getText() {
         return text;
     }
 
