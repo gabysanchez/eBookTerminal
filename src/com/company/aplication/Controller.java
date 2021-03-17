@@ -4,6 +4,8 @@ import com.company.entities.Book;
 import com.company.entities.Library;
 import com.company.entities.Page;
 import com.company.lector.Lector;
+import com.company.ui.MenuBuilder;
+import com.company.ui.menus.Menu;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,6 +13,8 @@ import java.nio.file.Path;
 import java.util.*;
 
 public class Controller {
+
+    private Library library;
 
     public static void createBook(String titulo){
         String bookTxt = Lector.lee(titulo);
@@ -45,15 +49,14 @@ public class Controller {
             }
         }
         System.out.println(libro.getPages().get(0).getText()[1]);
-        Library.getInstance().getBooks().add(libro);
+        Library.getInstance().addBook(libro);
     }
 
-    public static Page mostrar(Book book) {
-
-        Page pagina = book.getPages().get(0);
-
+    public static void mostrar(Book book,int pag) {
+        limpiar();
+        Scanner scaner = new Scanner(System.in);
+        Page pagina = book.getPages().get(pag);
         int contPalabra=0;
-
         for (int i = 0; i < pagina.getText().length; i++) {
             contPalabra++;
             System.out.print(" "+pagina.getText()[i]);
@@ -62,7 +65,25 @@ public class Controller {
                 System.out.println(" ");
             }
         }
-        return null;
+        System.out.println("\n");
+        System.out.println("<-- 4 *** 6 -->");
+        System.out.print("  >");
+        String opcion = scaner.nextLine();
+        if (opcion.equals("6")&&pag<book.getPages().size()-1){
+            pag++;
+            mostrar(book,pag);
+        }else if (opcion.equals("4")&&pag>0){
+            pag--;
+            mostrar(book,pag);
+        }else{
+            limpiar();
+            Menu menu = MenuBuilder.getMenu("mainMenu");
+            menu.draw();
+        }
     }
-
+    public static void limpiar(){
+        for (int i = 0; i < 100; i++) {
+            System.out.println("");
+        }
+    }
 }

@@ -1,8 +1,9 @@
 package com.company.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Page {
+public class Page implements Serializable {
     private String[] text;
 
     public Page(String[] text) {

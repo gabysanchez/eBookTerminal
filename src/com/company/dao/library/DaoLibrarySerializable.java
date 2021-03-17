@@ -1,15 +1,30 @@
 package com.company.dao.library;
 
+import com.company.entities.Book;
+import com.company.entities.Library;
+
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DaoLibrarySerializable implements DaoLibrary, Serializable {
-    private String bookFile = "books.txt";
+    private static String bookFile = "books.txt";
+    private List<Book> library = new ArrayList<>();
+
+    public void getBooks(){
+        leer();
+        Library.getInstance().setBooks(library);
+    }
+    public void setBooks(){
+        this.library=Library.getInstance().getBooks();
+        save();
+    }
     @Override
     public void save() {
         try {
             FileOutputStream fos = new FileOutputStream(bookFile);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(this.bookFile);
+            oos.writeObject(library);
             oos.close();
             fos.close();
         } catch (IOException e) {
@@ -24,8 +39,7 @@ public class DaoLibrarySerializable implements DaoLibrary, Serializable {
         try{
             FileInputStream fis =new FileInputStream(bookFile);
             ObjectInputStream ois= new ObjectInputStream(fis);
-            this.
-                    bookFile= (String) ois.readObject();
+            library= (List<Book>) ois.readObject();
         }
         catch (IOException e){
             e.printStackTrace();

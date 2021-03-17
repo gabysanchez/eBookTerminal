@@ -13,10 +13,6 @@ public class CatalogeMenu extends ListMenu {
     }
     @Override
     public void condition(String comand) {
-        if (comand.equals("1")){
-            Controller.createBook("el_quijote.txt");
-            Menu menu = MenuBuilder.getMenu("mainMenu");
-            menu.draw();
-        }
+            Controller.createBook(comand);
     }
 }

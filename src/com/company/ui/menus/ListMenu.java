@@ -16,14 +16,19 @@ public class ListMenu extends Menu{
         System.out.println("");
         Scanner scaner = new Scanner(System.in);
         for (int i = 0; i < getOpcionsMenu().size(); i++) {
-            System.out.print("  ["+getOpcionsMenu().get(i)+"]");
+            System.out.print("  ["+(i+1)+" "+getOpcionsMenu().get(i)+"]");
             if (i%2!=0&&i>0){
                 System.out.println("");
             }
         }
+        System.out.println("");
         System.out.println("*--------------------*");
         System.out.print("  Select título: ");
         String comand = scaner.nextLine();
+        Integer select = Integer.parseInt(comand);
+        for (int i = 0; i < getOpcionsMenu().size(); i++) {
+            comand=getOpcionsMenu().get(select-1);
+        }
         condition(comand);
     }
 
