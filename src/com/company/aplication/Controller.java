@@ -1,6 +1,7 @@
 package com.company.aplication;
 
 import com.company.entities.Book;
+import com.company.entities.Library;
 import com.company.entities.Page;
 import com.company.lector.Lector;
 
@@ -44,11 +45,10 @@ public class Controller {
             }
         }
         System.out.println(libro.getPages().get(0).getText()[1]);
-
-       mostrar(libro);
+        Library.getInstance().getBooks().add(libro);
     }
 
-    private static Page mostrar(Book book) {
+    public static Page mostrar(Book book) {
 
         Page pagina = book.getPages().get(0);
 

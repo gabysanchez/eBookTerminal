@@ -34,9 +34,9 @@ public class MenuBuilder {
            }
            case "2"-> {
                menu = new CatalogeMenu(titulos,
-                       "╔═╗┌─┐┌┬┐┌─┐┬  ┌─┐┌─┐┌─┐\n" +
-                            "║  ├─┤ │ ├─┤│  │ ││ ┬├┤ \n" +
-                            "╚═╝┴ ┴ ┴ ┴ ┴┴─┘└─┘└─┘└─┘");
+                       "╔═╗┌─┐┌┬┐┌─┐┬  ┌─┐┌─┐┬ ┬┌─┐\n" +
+                            "║  ├─┤ │ ├─┤│  │ ││ ┬│ │├┤ \n" +
+                            "╚═╝┴ ┴ ┴ ┴ ┴┴─┘└─┘└─┘└─┘└─┘");
            }
            case "3"-> {
                menu = new LibraryMenu(titulos,

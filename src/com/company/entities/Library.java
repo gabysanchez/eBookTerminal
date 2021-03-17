@@ -3,20 +3,23 @@ package com.company.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cataloge {
+public class Library {
 
-    private static Cataloge bibliteca;
+    private static Library bibliteca;
     private List<Book> books;
 
-    private Cataloge(){
+    private Library(){
         this.books = new ArrayList<>();
     }
 
-    public static Cataloge getInstance() {
+    public static Library getInstance() {
         if(bibliteca == null){
-            bibliteca = new Cataloge();
+            bibliteca = new Library();
         }
         return bibliteca;
     }
 
+    public List<Book> getBooks() {
+        return books;
+    }
 }

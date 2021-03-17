@@ -1,6 +1,7 @@
 package com.company.ui.menus.tipos;
 
 import com.company.aplication.Controller;
+import com.company.entities.Library;
 import com.company.ui.menus.ListMenu;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class BooksMenu extends ListMenu {
     @Override
     public void condition(String comand) {
         if (comand.equals("1")){
-            Controller.createBook("el_quijote.txt");
+            Controller.mostrar(Library.getInstance().getBooks().get(0));
         }
     }
 }
