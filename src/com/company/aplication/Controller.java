@@ -14,18 +14,20 @@ import java.util.*;
 
 public class Controller {
 
+    /**
+     * Tenemos la variable libreria que almacena una lista de libros;
+     */
     private Library library;
 
+    /**
+     * <p>Cuando se descarga un libro pasa por el crador para dejar la clase Book almacenada en Library</p>
+     * @since 1.0
+     * @param titulo es el título del libro a crear;
+     */
     public static void createBook(String titulo){
         String bookTxt = Lector.lee(titulo);
         bookTxt = bookTxt.toLowerCase(Locale.ROOT);
-        /*
-        List<String> caracteres = new ArrayList<>(List.of(".", ",", ";", ":", "–", "?", "¿", "!", "¡", "(", ")", "\n", "{", "}", "-", "»", "«"));
-        for (String caracter : caracteres) {
-            bookTxt = bookTxt.replace(caracter, "");
-        }
 
-         */
         List<String> palabras = Arrays.asList(bookTxt.split(" "));
 
         int contPalbra = 0;
@@ -51,7 +53,12 @@ public class Controller {
         System.out.println(libro.getPages().get(0).getText()[1]);
         Library.getInstance().addBook(libro);
     }
-
+    /**
+     * <p>Cuando queremos ver un Libro pasa por este metodo para dibujarse y paginarse</p>
+     * @since 1.0
+     * @param book Es el libro que se maquetara.
+     * @param pag pag es la pagina del libro que se mostrara.
+     */
     public static void mostrar(Book book,int pag) {
         limpiar();
         Scanner scaner = new Scanner(System.in);
@@ -81,6 +88,10 @@ public class Controller {
             menu.draw();
         }
     }
+    /**
+     * <p>Funcion sencilla para limpiar la pantalla</p>
+     * @since 1.0
+     */
     public static void limpiar(){
         for (int i = 0; i < 100; i++) {
             System.out.println("");
